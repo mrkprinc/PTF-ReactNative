@@ -1,0 +1,10 @@
+{
+  "colours": {
+    "black": "#333",
+    "white": "#fffafa",
+    "green": "rgba(89, 169, 121, 0.9)",
+    "darkGreen": "rgba(62, 120, 85, 0.9)",
+    "blue": "rgba(62, 95, 118, 0.9)",
+    "highlight": "#f0f066"
+  }
+}
