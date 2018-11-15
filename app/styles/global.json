@@ -6,5 +6,12 @@
     "darkGreen": "rgba(62, 120, 85, 0.9)",
     "blue": "rgba(62, 95, 118, 0.9)",
     "highlight": "#f0f066"
+  },
+  "text": {
+    "headerSize": 20
+  },
+  "units": {
+    "em": 18,
+    "smallpad": 3
   }
 }

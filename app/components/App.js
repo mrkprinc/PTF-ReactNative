@@ -1,12 +1,15 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import styles from '../styles/main';
+import { View } from 'react-native';
+import Text from './Text';
+import NavBar from './Navbar';
+import styles from '../styles/_components/App';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>This will be the Press the Freedom app.</Text>
+        <Text>This will be the Press the Freedom app.</Text>
+        <NavBar />
       </View>
     );
   }
