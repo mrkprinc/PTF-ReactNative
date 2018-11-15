@@ -1,7 +1,10 @@
 {
   "colours": {
     "black": "#333",
+    "halfBlack": "rgba(0, 0, 0, 0.5)",
+    "grey": "#777", 
     "white": "#fffafa",
+    "light": "rgba(255, 255, 255, 0.4)",
     "green": "rgba(89, 169, 121, 0.9)",
     "darkGreen": "rgba(62, 120, 85, 0.9)",
     "blue": "rgba(62, 95, 118, 0.9)",

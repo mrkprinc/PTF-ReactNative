@@ -1,11 +1,16 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Text } from './CustomComponents';
+import { View, ScrollView } from 'react-native';
+import { Heading, Text, Source } from './CustomComponents';
+import styles from '../styles/_components/App';
 
 const TopSources = props => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>These will be the top sources.</Text>
+    <View style={styles.screen}>
+      <Heading>Top Sources</Heading>
+      <ScrollView style={{width: '100%'}}>
+        <Source />
+        <Source />
+      </ScrollView>
     </View>
   )
 }
