@@ -2,8 +2,8 @@ import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { View } from 'react-native';
-import Text from './Text';
 import NavBar from './Navbar';
+import ScreenContainer from '../containers/ScreenContainer';
 import styles from '../styles/_components/App';
 import rootReducer from '../reducers';
 
@@ -14,7 +14,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <Text>This will be the Press the Freedom app.</Text>
+          <ScreenContainer screen={store.getState()['screen']} />
           <NavBar />
         </View>
       </Provider>

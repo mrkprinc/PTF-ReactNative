@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import global from '../global';
 
-const styles = StyleSheet.create({
+export const buttonStyles = StyleSheet.create({
   container: {
     flex: 1
   },
@@ -17,5 +17,3 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   }
 })
-
-export default styles;

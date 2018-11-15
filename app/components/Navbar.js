@@ -1,7 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import Button from './Button';
-import Text from './Text';
+import { Button } from './CustomComponents';
 import styles from '../styles/_components/NavBar';
 
 const NavBar = props => {
