@@ -17,7 +17,7 @@ const Screen = (props) => {
     case screens.SEARCH:
       return <Search />
     default: 
-      return <TopSources />
+      return <Search />
   }
 }
 

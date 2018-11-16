@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     right: 0,
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: global.colours.green
+    backgroundColor: global.colours.blue
   },
   button: {
     flex: 2

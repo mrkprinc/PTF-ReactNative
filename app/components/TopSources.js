@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
-import { Heading, Text, Source } from './CustomComponents';
-import styles from '../styles/_components/App';
+import { Heading, Source } from './CustomComponents';
+import screenStyles from '../styles/_components/Screens';
 
 const TopSources = props => {
   return (
-    <View style={styles.screen}>
+    <View style={screenStyles.screen}>
       <Heading>Top Sources</Heading>
       <ScrollView style={{width: '100%'}}>
         <Source />

@@ -34,3 +34,13 @@ export const Source = props => {
     </View>
   )
 }
+
+export const Article = props => {
+  return (
+    <View style={sourceStyles.container}>
+      <Text>This is an article headline.</Text>
+      <Button text={'Rate'} />
+      <Button text={'Go'} />
+    </View>
+  )
+}

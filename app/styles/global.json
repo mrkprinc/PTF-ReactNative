@@ -15,6 +15,7 @@
   },
   "units": {
     "em": 18,
-    "smallpad": 3
+    "smallpad": 3,
+    "borderWidth": 2
   }
 }

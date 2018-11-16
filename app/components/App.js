@@ -14,7 +14,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <ScreenContainer screen={store.getState()['screen']} />
+          <ScreenContainer />
           <NavBar />
         </View>
       </Provider>

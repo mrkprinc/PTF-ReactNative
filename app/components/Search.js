@@ -1,12 +1,18 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Text, Heading } from './CustomComponents';
+import { View, TextInput, Picker } from 'react-native';
+import { Heading, Button, Article } from './CustomComponents';
+import SearchBoxContainer from '../containers/SearchBoxContainer';
+import screenStyles from '../styles/_components/Screens';
 
 const Search = props => {
   return (
-    <View>
-      <Heading>Search Articles</Heading>
-      <Text>This is the search screen.</Text>
+    <View style={screenStyles.screen}>
+
+      <SearchBoxContainer />
+
+      <Article />
+      <Article />
+
     </View>
   )
 }

@@ -7,7 +7,7 @@ export const buttonStyles = StyleSheet.create({
   },
   button: {
     padding: global.units.em,
-    borderWidth: 2,
+    borderWidth: global.units.borderWidth,
     borderStyle: 'solid',
     borderColor: global.colours.black,
     borderRadius: global.units.smallpad,
