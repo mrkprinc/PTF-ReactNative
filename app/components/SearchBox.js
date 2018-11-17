@@ -18,8 +18,29 @@ class SearchBox extends React.Component {
     this.setState({searchSource: -1});
   }
 
+  componentDidMount() {
+    this.props.getSources();
+  }
+
+  getPickerItems() {
+    let items = [];
+    if(this.props.sources) {
+      for(let [id, name] of this.props.sources) {
+        let item = <Picker.Item label={name} value={id} key={id} />
+        items.push(item);
+      }
+    }
+    return items;
+  }
+
   render() {
     if(this.props.expanded) {
+
+      let sources = [
+        <Picker.Item label='Select source (optional)' value={-1} />,
+        ...this.getPickerItems()
+      ];
+
       return (
         <View style={screenStyles.section}>
           <Heading>Search Articles</Heading>
@@ -35,8 +56,7 @@ class SearchBox extends React.Component {
             selectedValue={this.state.searchSource}
             onValueChange={value => this.setState({searchSource: value})}
           >
-            <Picker.Item label='Select source (optional)' value={-1} />
-            <Picker.Item label='New York Times' value={1} />
+            {sources}
           </Picker>
           <View style={{flexDirection: 'row', width: '90%'}}>
             <Button text='Search' />

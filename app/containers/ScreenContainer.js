@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { screens } from '../actions/Navigate';
+import { screens } from '../actions/navigate';
 import TopSources from '../components/TopSources';
 import Search from '../components/Search';
 
