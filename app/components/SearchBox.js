@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TextInput, Picker } from 'react-native';
 import { Heading, Button, Text } from './CustomComponents';
 import screenStyles from '../styles/_components/Screens';
-import styles from '../styles/NativeComponents';
+import styles from '../styles/main';
 
 class SearchBox extends React.Component {
   constructor() {
@@ -11,6 +11,11 @@ class SearchBox extends React.Component {
       searchInput: '',
       searchSource: -1
     }
+  }
+
+  clearSearch() {
+    this.setState({searchInput: ''});
+    this.setState({searchSource: -1});
   }
 
   render() {
@@ -35,7 +40,7 @@ class SearchBox extends React.Component {
           </Picker>
           <View style={{flexDirection: 'row', width: '90%'}}>
             <Button text='Search' />
-            <Button text='Clear' />
+            <Button text='Clear' onPress={e => this.clearSearch()} />
           </View>
         </View>
       )

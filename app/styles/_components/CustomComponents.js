@@ -23,6 +23,8 @@ export const sourceStyles = StyleSheet.create({
   container: {
     flex: 0,
     flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
     alignItems: 'center',
     padding: global.units.smallpad,
     margin: global.units.smallpad,

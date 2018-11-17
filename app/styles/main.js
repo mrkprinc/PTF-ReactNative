@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
-import global from '../global';
+import global from './global';
 
 const styles = StyleSheet.create({
-  container: {
+  appContainer: {
     flex: 1,
     backgroundColor: global.colours.black,
     alignItems: 'center',
@@ -16,6 +16,12 @@ const styles = StyleSheet.create({
     fontSize: global.text.headerSize,
     fontWeight: 'bold',
     color: global.colours.halfBlack,
+    marginBottom: global.units.em
+  },
+  input: {
+    backgroundColor: global.colours.white,
+    padding: global.units.smallpad * 3,
+    width: '90%',
     marginBottom: global.units.em
   }
 })

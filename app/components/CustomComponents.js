@@ -1,12 +1,13 @@
 import React from 'react';
 import { TouchableOpacity, View, Text as NativeText } from 'react-native';
 import { buttonStyles, sourceStyles } from '../styles/_components/CustomComponents';
-import styles from '../styles/_components/App';
-import global from '../styles/global';
+import styles from '../styles/main';
 
 export const Button = props => {
   return (
-    <TouchableOpacity style={[buttonStyles.container, props.inheritStyle]}>
+    <TouchableOpacity 
+      style={[buttonStyles.container, props.inheritStyle]}
+      onPress={props.onPress}>
       <View style={buttonStyles.button}>
         <Text inheritStyle={buttonStyles.text}>{props.text}</Text>
       </View>
@@ -39,8 +40,7 @@ export const Article = props => {
   return (
     <View style={sourceStyles.container}>
       <Text>This is an article headline.</Text>
-      <Button text={'Rate'} />
-      <Button text={'Go'} />
+      <Button text={'Rate'} inheritStyle={{flex: 0}} />
     </View>
   )
 }
