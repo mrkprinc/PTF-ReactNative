@@ -1,16 +1,38 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Animated } from 'react-native';
 import { Button } from './CustomComponents';
 import styles from '../styles/_components/NavBar';
 
-const NavBar = props => {
-  return (
-    <View style={styles.container}>
-      <Button text={'Articles'} inheritStyle={styles.button} />
-      <Button text={'Top Sources'} inheritStyle={styles.button} />
-      <Button text={'⚙'} inheritStyle={{flex: 1}} />
-    </View>
-  )
+class NavBar extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      expanded: false
+    }
+  }
+
+  toggleExpand() {
+    let toggle = this.state.expanded ? false : true;
+    this.setState({ expanded: toggle });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Button 
+          text={'⚙'} 
+          inheritStyle={{flex: 0, backgroundColor: 'none'}} 
+          onPress={() => this.toggleExpand()}
+        />
+        {this.state.expanded && 
+          <View style={{flex: 1, flexDirection: 'row'}}>
+            <Button text={'Articles'} inheritStyle={styles.button} />
+            <Button text={'Top Sources'} inheritStyle={styles.button} />
+          </View>
+        }
+      </View>
+    )
+  }
 }
 
 export default NavBar;

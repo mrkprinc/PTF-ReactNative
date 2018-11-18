@@ -37,7 +37,7 @@ class SearchBox extends React.Component {
     if(this.props.expanded) {
 
       let sources = [
-        <Picker.Item label='Select source (optional)' value={-1} />,
+        <Picker.Item label='Select source (optional)' value={-1} key={-1} />,
         ...this.getPickerItems()
       ];
 
@@ -68,7 +68,7 @@ class SearchBox extends React.Component {
   
     else return (
       <View style={screenStyles.section}>
-        <Text>Start a New Search</Text>
+        <Button text='Start a New Search' inheritStyle={{backgroundColor: 'none', flex: 0}}></Button>
       </View>
     )
   }

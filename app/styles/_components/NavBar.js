@@ -6,8 +6,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     left: 0,
-    right: 0,
-    flex: 1,
+    flex: 0,
     flexDirection: 'row',
     backgroundColor: global.colours.blue
   },

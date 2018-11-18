@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, View, Text as NativeText } from 'react-native';
+import { TouchableOpacity, View, Text as NativeText, StyleSheet } from 'react-native';
 import { buttonStyles, sourceStyles } from '../styles/_components/CustomComponents';
 import styles from '../styles/main';
 
@@ -8,7 +8,7 @@ export const Button = props => {
     <TouchableOpacity 
       style={[buttonStyles.container, props.inheritStyle]}
       onPress={props.onPress}>
-      <View style={buttonStyles.button}>
+      <View style={[buttonStyles.button, props.inheritStyle]}>
         <Text inheritStyle={buttonStyles.text}>{props.text}</Text>
       </View>
     </TouchableOpacity>
@@ -40,7 +40,7 @@ export const Article = props => {
   return (
     <View style={sourceStyles.container}>
       <Text>This is an article headline.</Text>
-      <Button text={'Rate'} inheritStyle={{flex: 0}} />
+      <Button text={'Rate'} inheritStyle={{flex: 0, backgroundColor: 'transparent'}} />
     </View>
   )
 }
