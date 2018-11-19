@@ -9,13 +9,13 @@ class SearchBox extends React.Component {
     super();
     this.state = {
       searchInput: '',
-      searchSource: -1
+      searchSource: 'none'
     }
   }
 
   clearSearch() {
     this.setState({searchInput: ''});
-    this.setState({searchSource: -1});
+    this.setState({searchSource: 'none'});
   }
 
   componentDidMount() {
@@ -37,7 +37,7 @@ class SearchBox extends React.Component {
     if(this.props.expanded) {
 
       let sources = [
-        <Picker.Item label='Select source (optional)' value={-1} key={-1} />,
+        <Picker.Item label='Select source (optional)' value='none' key={-1} />,
         ...this.getPickerItems()
       ];
 
@@ -59,7 +59,7 @@ class SearchBox extends React.Component {
             {sources}
           </Picker>
           <View style={{flexDirection: 'row', width: '90%'}}>
-            <Button text='Search' />
+            <Button text='Search' onPress={e => this.props.searchArticles(this.state)} />
             <Button text='Clear' onPress={e => this.clearSearch()} />
           </View>
         </View>

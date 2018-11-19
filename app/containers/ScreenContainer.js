@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { screens } from '../actions/navigate';
 import TopSources from '../components/TopSources';
-import Search from '../components/Search';
+import SearchContainer from '../containers/SearchContainer';
 
 const mapStateToProps = state => {
   return {
@@ -15,9 +15,9 @@ const Screen = (props) => {
     case screens.TOP_SOURCES:
       return <TopSources />
     case screens.SEARCH:
-      return <Search />
+      return <SearchContainer />
     default: 
-      return <Search />
+      return <SearchContainer />
   }
 }
 

@@ -39,8 +39,13 @@ export const Source = props => {
 export const Article = props => {
   return (
     <View style={sourceStyles.container}>
-      <Text>This is an article headline.</Text>
-      <Button text={'Rate'} inheritStyle={{flex: 0, backgroundColor: 'transparent'}} />
+      <Text inheritStyle={sourceStyles.headline}>
+        {props.headline}&nbsp;
+        <Text inheritStyle={{fontStyle: 'italic'}}>
+          ({props.source})
+        </Text>
+      </Text>
+      <Button text={'Rate'} inheritStyle={sourceStyles.button} />
     </View>
   )
 }
