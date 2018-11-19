@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import SearchBox from '../components/SearchBox';
 import { getSources } from '../actions/getSources';
-import { searchArticles } from '../actions/searchArticles';
+import { searchArticles, searchReset } from '../actions/searchArticles';
 
 const mapStateToProps = state => {
   return {
@@ -17,6 +17,9 @@ const mapDispatchToProps = dispatch => {
     },
     searchArticles: componentState => {
       dispatch(searchArticles(componentState))
+    },
+    searchReset: () => {
+      dispatch(searchReset())
     }
   }
 }

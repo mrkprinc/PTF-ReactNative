@@ -3,8 +3,9 @@ import Search from '../components/Search';
 
 const mapStateToProps = state => {
   return {
-    results: state.search.results.map((result, i) => Object.assign(result, {key: i.toString()})),
-    sources: state.sources
+    results: state.search.results.map((result, i) => Object.assign(result, {key: i.toString()})).slice(0, 12),
+    sources: state.sources,
+    status: state.search.status
   }
 }
 

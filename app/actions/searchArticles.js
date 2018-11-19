@@ -2,7 +2,7 @@ import { ApiError } from '../errors';
 
 export const SEARCH_CALL = 'SEARCH_CALL';
 export const SEARCH_RESULTS = 'SEARCH_RESULTS';
-export const SEARCH_ERROR = 'SEARCH_ERROR';
+export const SEARCH_RESET = 'SEARCH_RESET';
 
 export const searchStatus = {
   IN_PROGRESS: 'IN_PROGRESS',
@@ -37,6 +37,12 @@ function searchCall() {
 function searchResults(data) {
   return {
     type: SEARCH_RESULTS,
-    data
+    data: data.filter(result => {return result.source; })
+  }
+}
+
+export function searchReset() {
+  return {
+    type: SEARCH_RESET
   }
 }

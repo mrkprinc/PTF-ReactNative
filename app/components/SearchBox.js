@@ -59,7 +59,14 @@ class SearchBox extends React.Component {
             {sources}
           </Picker>
           <View style={{flexDirection: 'row', width: '90%'}}>
-            <Button text='Search' onPress={e => this.props.searchArticles(this.state)} />
+            <Button 
+              text='Search' 
+              onPress={e => {
+                this.clearSearch();
+                this.props.searchArticles(this.state);
+              }
+            } 
+            />
             <Button text='Clear' onPress={e => this.clearSearch()} />
           </View>
         </View>
@@ -68,7 +75,12 @@ class SearchBox extends React.Component {
   
     else return (
       <View style={screenStyles.section}>
-        <Button text='Start a New Search' inheritStyle={{backgroundColor: 'none', flex: 0}}></Button>
+        <Button 
+          text='Start a New Search' 
+          inheritStyle={{backgroundColor: 'none', flex: 0}}
+          onPress={e => this.props.searchReset()}
+        >
+        </Button>
       </View>
     )
   }

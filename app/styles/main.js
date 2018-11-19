@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: global.units.em,
-    fontFamily: 'System'
+    fontFamily: 'System',
+    lineHeight: 22
   },
   heading: {
     fontSize: global.text.headerSize,
