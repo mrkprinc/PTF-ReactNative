@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import global from '../global';
+import { colours } from '../global';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     left: 0,
     flex: 0,
     flexDirection: 'row',
-    backgroundColor: global.colours.blue
+    backgroundColor: colours.blue
   },
   button: {
     flex: 2

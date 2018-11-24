@@ -1,18 +1,18 @@
 import { StyleSheet } from 'react-native';
-import global from '../global';
+import { colours, units } from '../global';
 
 export const buttonStyles = StyleSheet.create({
   container: {
     flex: 1
   },
   button: {
-    padding: global.units.em,
-    borderWidth: global.units.borderWidth,
+    padding: units.em,
+    borderWidth: units.borderWidth,
     borderStyle: 'solid',
-    borderColor: global.colours.black,
-    borderRadius: global.units.smallpad,
-    margin: global.units.smallpad,
-    backgroundColor: global.colours.light
+    borderColor: colours.black,
+    borderRadius: units.smallpad,
+    margin: units.smallpad,
+    backgroundColor: colours.light
   },
   text: {
     textAlign: 'center'
@@ -25,9 +25,9 @@ export const sourceStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: global.units.smallpad,
-    margin: global.units.smallpad,
-    backgroundColor: global.colours.green,
+    padding: units.smallpad,
+    margin: units.smallpad,
+    backgroundColor: colours.green,
   },
   headline: {
     flex: 1
