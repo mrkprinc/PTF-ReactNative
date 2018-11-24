@@ -2,6 +2,7 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import { Article, Text } from './CustomComponents';
 import SearchBoxContainer from '../containers/SearchBoxContainer';
+import RatingModalContainer from '../containers/RatingModalContainer';
 import { searchStatus } from '../actions/searchArticles';
 import screenStyles from '../styles/_components/Screens';
 import global from '../styles/global';
@@ -25,10 +26,12 @@ const Search = props => {
               headline={item.title.length > 60 ? item.title.slice(0, 55) + '...' : item.title} 
               source={props.sources.get(item.source)} 
               url = {item.url}
+              showModal = {props.showModal}
             />}
         />
       )}
 
+      <RatingModalContainer />
     </View>
   )
 }

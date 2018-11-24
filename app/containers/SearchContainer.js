@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Search from '../components/Search';
+import { showModal } from '../actions/rateArticle';
 
 const mapStateToProps = state => {
   return {
@@ -9,4 +10,12 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Search);
+const mapDispatchToProps = dispatch => {
+  return {
+    showModal: () => {
+      dispatch(showModal());
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

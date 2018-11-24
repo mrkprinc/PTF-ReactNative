@@ -45,7 +45,11 @@ export const Article = props => {
           ({props.source})
         </Text>
       </Text>
-      <Button text={'Rate'} inheritStyle={sourceStyles.button} />
+      <Button 
+        text={'Rate'} 
+        inheritStyle={sourceStyles.button} 
+        onPress={props.showModal}
+      />
     </View>
   )
 }
