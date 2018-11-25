@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, TouchableWithoutFeedback } from 'react-native';
 import { Text } from './CustomComponents';
 import styles from '../styles/_components/RatingModal';
 
@@ -11,13 +11,16 @@ class RateScale extends React.Component {
   render() {
     let scale = [];
     for(let i = 1; i < 11; i++) {
-      scale.push(<View
-        style={[styles.scaleNumber, this.highlight(i)]}
-        onPress={e => this.handleClick(e, i)}
-        key={i}
-      >
-        <Text>{i}</Text>
-      </View>)
+      scale.push(
+        <TouchableWithoutFeedback
+          onPress={e => this.props.ratingPress(i)}
+          key={i}
+        >
+          <View style={[styles.scaleNumber, this.highlight(i)]}>
+            <Text>{i}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      )
     }
 
     return (

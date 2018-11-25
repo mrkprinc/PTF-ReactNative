@@ -1,10 +1,19 @@
 import React from 'react';
 import { Modal, View } from 'react-native';
-import RateScale from './RateScale';
+import RatingScale from './RatingScale';
 import { Text, Heading, Button } from './CustomComponents';
 import styles from '../styles/_components/RatingModal';
 
 class RatingModal extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      credible: 5,
+      accurate: 5,
+      relevant: 5
+    }
+  }
+
   render() {
     return (
       <Modal
@@ -18,13 +27,19 @@ class RatingModal extends React.Component {
             <Heading>Rate this Article</Heading>
 
             <Text>This article is credible.</Text>
-            <RateScale currentValue={7} />
+            <RatingScale 
+              currentValue={this.state.credible}
+              ratingPress={rating => this.setState({ credible: rating })} />
 
             <Text>This article is accurate.</Text>
-            <RateScale currentValue={3} />
+            <RatingScale 
+              currentValue={this.state.accurate} 
+              ratingPress={rating => this.setState({ accurate: rating })} />
 
             <Text>This article is relevant.</Text>
-            <RateScale currentValue={9} />
+            <RatingScale 
+              currentValue={this.state.relevant}
+              ratingPress={rating => this.setState({ relevant: rating })} />
 
             <View style={{flexDirection: 'row', width: '95%'}}>
               <Button text='Submit' />
