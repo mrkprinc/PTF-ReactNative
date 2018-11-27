@@ -4,52 +4,50 @@ import RatingScale from './RatingScale';
 import { Text, Heading, Button } from './CustomComponents';
 import styles from '../styles/_components/RatingModal';
 
-class RatingModal extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      credible: 5,
-      accurate: 5,
-      relevant: 5
-    }
-  }
+const RatingModal = props => {
+  return (
+    <Modal
+      visible={props.show}
+      transparent={true}
+      animationType='slide'
+      onRequestClose={props.closeModal}
+    >
+      <View style={styles.container}>
+        <View style={styles.modal}>
+          <Heading>Rate this Article</Heading>
 
-  render() {
-    return (
-      <Modal
-        visible={this.props.showModal}
-        transparent={true}
-        animationType='slide'
-        onRequestClose={this.props.closeModal}
-      >
-        <View style={styles.container}>
-          <View style={styles.modal}>
-            <Heading>Rate this Article</Heading>
+          <Text>This article is credible.</Text>
+          <RatingScale 
+            currentValue={props.ratings.credible}
+            ratingPress={rating => props.setRating('credible', rating)} />
 
-            <Text>This article is credible.</Text>
-            <RatingScale 
-              currentValue={this.state.credible}
-              ratingPress={rating => this.setState({ credible: rating })} />
+          <Text>This article is accurate.</Text>
+          <RatingScale 
+            currentValue={props.ratings.accurate} 
+            ratingPress={rating => props.setRating('accurate', rating)} />
 
-            <Text>This article is accurate.</Text>
-            <RatingScale 
-              currentValue={this.state.accurate} 
-              ratingPress={rating => this.setState({ accurate: rating })} />
+          <Text>This article is relevant.</Text>
+          <RatingScale 
+            currentValue={props.ratings.relevant}
+            ratingPress={rating => props.setRating('relevant', rating)} />
 
-            <Text>This article is relevant.</Text>
-            <RatingScale 
-              currentValue={this.state.relevant}
-              ratingPress={rating => this.setState({ relevant: rating })} />
-
-            <View style={{flexDirection: 'row', width: '95%'}}>
-              <Button text='Submit' />
-              <Button text='Cancel' onPress={this.props.closeModal} />
-            </View>
+          <View style={{flexDirection: 'row', width: '95%'}}>
+            <Button text='Submit' onPress={() => {
+              let ratingsData = {
+                source: props.source,
+                url: props.url,
+                credible: props.ratings.credible,
+                accurate: props.ratings.accurate,
+                relevant: props.ratings.relevant
+              }
+              props.submitRatings(ratingsData);
+            }} />
+            <Button text='Cancel' onPress={props.closeModal} />
           </View>
         </View>
-      </Modal>
-    )
-  }
+      </View>
+    </Modal>
+  )
 }
 
 export default RatingModal;

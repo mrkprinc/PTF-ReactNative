@@ -48,7 +48,7 @@ export const Article = props => {
       <Button 
         text={'Rate'} 
         inheritStyle={sourceStyles.button} 
-        onPress={props.showModal}
+        onPress={() => props.showModal(props.source, props.url)}
       />
     </View>
   )

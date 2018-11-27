@@ -1,16 +1,29 @@
-import { HIDE_MODAL, SHOW_MODAL } from '../actions/rateArticle';
+import { HIDE_MODAL, SHOW_MODAL, SET_RATING } from '../actions/rateArticle';
 
 export const modal = (state = {
-  show: false
+  show: false,
+  ratings: {credible: 5, accurate: 5, relevant: 5}
 }, action) => {
   switch(action.type) {
     case SHOW_MODAL:
       return {
-        show: true 
+        show: true,
+        source: action.source,
+        url: action.url,
+        ratings: { credible: 5, accurate: 5, relevant: 5}
+      }
+    case SET_RATING:
+      return {
+        ...state,
+        ratings: {
+          ...ratings,
+          [action.category]: action.rating
+        }
       }
     case HIDE_MODAL:
       return {
-        show: false
+        ...state,
+        show: false,
       }
     default:
       return state;

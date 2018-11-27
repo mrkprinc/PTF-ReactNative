@@ -12,8 +12,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    showModal: () => {
-      dispatch(showModal());
+    showModal: (source, url) => {
+      dispatch(showModal(source, url));
     }
   }
 }
