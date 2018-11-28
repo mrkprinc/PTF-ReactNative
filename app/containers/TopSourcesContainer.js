@@ -3,7 +3,7 @@ import TopSources from '../components/TopSources';
 
 mapStateToProps = state => {
   return {
-    status: 'IN_PROGRESS'
+    status: 'COMPLETE'
   }
 }
 

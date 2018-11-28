@@ -31,8 +31,7 @@ export const Heading = props => {
 export const Source = props => {
   return (
     <View style={sourceStyles.container}>
-      <Text>This is a source.</Text>
-      <Text>Ratings go here.</Text>
+      <Text>This will be a news sources.</Text>
     </View>
   )
 }
