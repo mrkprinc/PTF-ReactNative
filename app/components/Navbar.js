@@ -24,12 +24,13 @@ class NavBar extends React.Component {
           inheritStyle={{flex: 0, backgroundColor: 'none'}} 
           onPress={() => this.toggleExpand()}
         />
-        {this.state.expanded && 
+
+        {this.state.expanded && (
           <View style={{flex: 1, flexDirection: 'row'}}>
-            <Button text={'Articles'} inheritStyle={styles.button} />
-            <Button text={'Top Sources'} inheritStyle={styles.button} />
+            <Button text={'Articles'} inheritStyle={styles.button} onPress={this.props.goToSearch} />
+            <Button text={'Top Sources'} inheritStyle={styles.button} onPress={this.props.goToTopSources} />
           </View>
-        }
+        )}
       </View>
     )
   }

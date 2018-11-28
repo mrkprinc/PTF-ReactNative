@@ -5,7 +5,7 @@ import SearchBoxContainer from '../containers/SearchBoxContainer';
 import RatingModalContainer from '../containers/RatingModalContainer';
 import { searchStatus } from '../actions/searchArticles';
 import screenStyles from '../styles/_components/Screens';
-import global from '../styles/global';
+import { colours, units } from '../styles/global';
 
 const Search = props => {
   return (
@@ -14,7 +14,7 @@ const Search = props => {
       <SearchBoxContainer />
 
       {props.status === searchStatus.IN_PROGRESS && (
-        <Text inheritStyle={{color: global.colours.white}}>Searching...</Text>
+        <Text inheritStyle={{color: colours.white, padding: units.em}}>Searching...</Text>
       )}
 
       {props.results && props.results.length > 0 && (

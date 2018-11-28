@@ -6,7 +6,7 @@ import { searchArticles, searchReset } from '../actions/searchArticles';
 const mapStateToProps = state => {
   return {
     expanded: state.search.results && state.search.results.length > 0 ? false: true,
-    sources: state.sources
+    sources: state.sources.sources
   }
 }
 

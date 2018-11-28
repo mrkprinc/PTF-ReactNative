@@ -7,7 +7,8 @@ export const Button = props => {
   return (
     <TouchableOpacity 
       style={[buttonStyles.container, props.inheritStyle]}
-      onPress={props.onPress}>
+      onPress={props.onPress}
+      disabled={Boolean(props.disabled)}>
       <View style={[buttonStyles.button, props.inheritStyle]}>
         <Text inheritStyle={buttonStyles.text}>{props.text}</Text>
       </View>
