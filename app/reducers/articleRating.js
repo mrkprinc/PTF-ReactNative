@@ -1,4 +1,5 @@
 import { HIDE_MODAL, SHOW_MODAL, SET_RATING } from '../actions/rateArticle';
+import { RATING_RESPONSE } from '../actions/rateArticle';
 
 export const modal = (state = {
   show: false,
@@ -21,6 +22,7 @@ export const modal = (state = {
         }
       }
     case HIDE_MODAL:
+    case RATING_RESPONSE:
       return {
         ...state,
         show: false,

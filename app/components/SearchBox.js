@@ -19,7 +19,9 @@ class SearchBox extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getSources();
+    if(!this.props.sources) {
+      this.props.getSources();
+    }
   }
 
   getPickerItems() {

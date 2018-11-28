@@ -16,6 +16,9 @@ export const buttonStyles = StyleSheet.create({
   },
   text: {
     textAlign: 'center'
+  },
+  disabled: {
+    opacity: 0.5
   }
 })
 

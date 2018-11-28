@@ -1,20 +1,23 @@
 import React from 'react';
-import { TouchableOpacity, View, Text as NativeText, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import { TouchableOpacity, View, Text as NativeText } from 'react-native';
 import { buttonStyles, sourceStyles } from '../styles/_components/CustomComponents';
 import styles from '../styles/main';
 
-export const Button = props => {
+const ButtonComponent = props => {
   return (
     <TouchableOpacity 
-      style={[buttonStyles.container, props.inheritStyle]}
+      style={[buttonStyles.container, props.inheritStyle, props.disabled && buttonStyles.disabled]}
       onPress={props.onPress}
-      disabled={Boolean(props.disabled)}>
+      disabled={props.disabled}>
       <View style={[buttonStyles.button, props.inheritStyle]}>
         <Text inheritStyle={buttonStyles.text}>{props.text}</Text>
       </View>
     </TouchableOpacity>
   )
 }
+
+export const Button = connect(state => { return { disabled: state.freeze } })(ButtonComponent);
 
 export const Text = props => {
   return (

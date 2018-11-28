@@ -1,6 +1,8 @@
 export const SHOW_MODAL = 'SHOW_MODAL';
 export const HIDE_MODAL = 'HIDE_MODAL';
 export const SET_RATING = 'SET_RATING';
+export const RATING_CALL = 'RATING_CALL';
+export const RATING_RESPONSE = 'RATING_RESPONSE';
 
 export const showModal = (source, url) => {
   return {
@@ -20,6 +22,7 @@ export const setRating = (category, rating) => {
 
 export const submitRatings = ratingsData => {
   return dispatch => {
+    dispatch(ratingCall());
     fetch('https://infinite-inlet-48108.herokuapp.com/api/srating', {
       method: 'POST',
       body: JSON.stringify(ratingsData),
@@ -28,8 +31,22 @@ export const submitRatings = ratingsData => {
       }
     }).then(response => {
       if(!response.ok) console.log(response.status);
-      else dispatch(hideModal());
+      else {
+        dispatch(ratingResponse());
+      }
     })
+  }
+}
+
+const ratingCall = () => {
+  return {
+    type: RATING_CALL
+  }
+}
+
+const ratingResponse = () => {
+  return {
+    type: RATING_RESPONSE
   }
 }
 
