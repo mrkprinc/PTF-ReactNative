@@ -24,7 +24,8 @@ const Search = props => {
           renderItem={({item, index}) => 
             <Article 
               headline={item.title.length > 60 ? item.title.slice(0, 55) + '...' : item.title} 
-              source={props.sources.get(item.source)} 
+              sourceName={props.sources.get(item.source)} 
+              source={item.source}
               url = {item.url}
               showModal = {props.showModal}
             />}

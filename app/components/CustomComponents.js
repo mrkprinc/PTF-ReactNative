@@ -42,7 +42,7 @@ export const Article = props => {
       <Text inheritStyle={sourceStyles.headline}>
         {props.headline}&nbsp;
         <Text inheritStyle={{fontStyle: 'italic'}}>
-          ({props.source})
+          ({props.sourceName})
         </Text>
       </Text>
       <Button 
