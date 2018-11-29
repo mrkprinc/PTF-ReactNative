@@ -1,5 +1,11 @@
 import { ApiError } from '../errors';
+
 export const GOT_SOURCES = 'GOT_SOURCES';
+export const GOT_TOPSOURCES = 'GOT_TOPSOURCES';
+export const status = {
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETE: 'COMPLETE'
+}
 
 export const getSources = () => {
   return dispatch => {
@@ -23,6 +29,46 @@ export const getSources = () => {
 const gotSources = sources => {
   return {
     type: GOT_SOURCES,
+    sources
+  }
+}
+
+export const getTopSources = () => {
+  return dispatch => {
+    try {
+      fetch('https://infinite-inlet-48108.herokuapp.com/api/toptenrating')
+        .catch(err => { throw new ApiError(); })
+        .then(response => {
+          if(response.ok) {
+            response.json()
+              .catch(err => { throw new ApiError(); })
+              .then(data => {
+                let sources = data
+                .filter(src => {
+                  return src.totalusers > 0;
+                })
+                .map(src => {
+                  return {
+                    name: src.name,
+                    description: src.description,
+                    credibleScore: src.credtotal / src.totalusers,
+                    accurateScore: src.acctotal / src.totalusers,
+                    relevantScore: src.reltotal / src.totalusers
+                  }
+                })
+                dispatch(gotTopSources(sources));
+              })
+          } else throw new ApiError();
+        })
+    } catch(err) { 
+      console.log(err.msg); 
+    }
+  }
+}
+
+const gotTopSources = sources => {
+  return {
+    type: GOT_TOPSOURCES,
     sources
   }
 }

@@ -1,3 +1,5 @@
+import { ApiError } from "../errors";
+
 export const SHOW_MODAL = 'SHOW_MODAL';
 export const HIDE_MODAL = 'HIDE_MODAL';
 export const SET_RATING = 'SET_RATING';
@@ -22,19 +24,21 @@ export const setRating = (category, rating) => {
 
 export const submitRatings = ratingsData => {
   return dispatch => {
-    dispatch(ratingCall());
-    fetch('https://infinite-inlet-48108.herokuapp.com/api/srating', {
-      method: 'POST',
-      body: JSON.stringify(ratingsData),
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      }
-    }).then(response => {
-      if(!response.ok) console.log(response.status);
-      else {
-        dispatch(ratingResponse());
-      }
-    })
+    try {
+      dispatch(ratingCall());
+      fetch('https://infinite-inlet-48108.herokuapp.com/api/srating', {
+        method: 'POST',
+        body: JSON.stringify(ratingsData),
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        }
+      }).then(response => {
+        if(!response.ok) { throw new ApiError(); }
+        else {
+          dispatch(ratingResponse());
+        }
+      }).catch(err => { throw new ApiError(); })
+    } catch(err) { console.log(err.msg); };
   }
 }
 

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import search from './articleSearch';
+import { search } from './articleSearch';
 import { modal } from './articleRating';
-import { GOT_SOURCES } from '../actions/getSources';
+import { sources, topSources } from './sources';
 import { screens, NAVIGATE } from '../actions/navigate';
 import { UNFREEZE } from '../actions/freeze';
 import { SEARCH_CALL, SEARCH_RESULTS } from '../actions/searchArticles';
@@ -16,20 +16,7 @@ const screen = (state = screens.SEARCH, action) => {
   }
 }
 
-const sources = (state = {sources: null, status: 'COMPLETE'}, action) => {
-  switch(action.type) {
-    case GOT_SOURCES:
-      return {
-        sources: action.sources,
-        status: 'COMPLETE'
-      };
-    default: 
-      return state;
-  }
-}
-
 const freeze = (state = false, action) => {
-  console.log(action.type);
   switch(action.type) {
     case NAVIGATE:
     case SEARCH_CALL:
@@ -44,4 +31,4 @@ const freeze = (state = false, action) => {
   }
 }
 
-export default combineReducers({ search, modal, screen, sources, freeze });
+export default combineReducers({ search, modal, screen, sources, topSources, freeze });

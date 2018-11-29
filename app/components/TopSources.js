@@ -17,10 +17,13 @@ class TopSources extends React.Component {
           {this.props.status === 'IN_PROGRESS' &&
             <Text inheritStyle={{padding: units.em}}>Getting sources...</Text>
           }
-          <ScrollView style={{width: '100%'}}>
-            <Source />
-            <Source />
-          </ScrollView>
+          {this.props.sources && (
+            <ScrollView style={{width: '100%'}}>
+              {this.props.sources.map((source, i) => {
+                return <Source {...source} key={i} />
+              })}
+            </ScrollView>
+          )}
         </View>
       </View>
     )

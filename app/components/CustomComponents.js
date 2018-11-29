@@ -8,6 +8,7 @@ const ButtonComponent = props => {
   return (
     <TouchableOpacity 
       style={[buttonStyles.container, props.inheritStyle, props.disabled && buttonStyles.disabled]}
+      activeOpacity={0.6}
       onPress={props.onPress}
       disabled={props.disabled}>
       <View style={[buttonStyles.button, props.inheritStyle]}>
@@ -34,7 +35,7 @@ export const Heading = props => {
 export const Source = props => {
   return (
     <View style={sourceStyles.container}>
-      <Text>This will be a news sources.</Text>
+      <Heading>{props.name}</Heading>
     </View>
   )
 }

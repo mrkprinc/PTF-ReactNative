@@ -1,6 +1,6 @@
 import { searchStatus, SEARCH_RESET, SEARCH_RESULTS, SEARCH_CALL } from '../actions/searchArticles';
 
-export default reducer = (state = {
+export const search = (state = {
   results: [],
   status: searchStatus.COMPLETE
 }, action) => {
