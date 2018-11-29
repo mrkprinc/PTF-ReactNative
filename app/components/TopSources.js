@@ -18,7 +18,7 @@ class TopSources extends React.Component {
             <Text inheritStyle={{padding: units.em}}>Getting sources...</Text>
           }
           {this.props.sources && (
-            <ScrollView style={{width: '100%'}}>
+            <ScrollView style={{ width: '95%', marginBottom: 2 * units.em }}>
               {this.props.sources.map((source, i) => {
                 return <Source {...source} key={i} />
               })}

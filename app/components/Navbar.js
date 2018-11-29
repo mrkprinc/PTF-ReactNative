@@ -18,7 +18,7 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, !this.state.expanded && { opacity: 0.5 }]}>
         <Button 
           text={'⚙'} 
           inheritStyle={{flex: 0, backgroundColor: 'none'}} 

@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { screens } from '../actions/navigate';
 import { unfreeze } from '../actions/freeze';
-import TopSourcesContainer from '../containers/TopSourcesContainer';
-import SearchContainer from '../containers/SearchContainer';
+import TopSourcesContainer from './TopSourcesContainer';
+import SearchContainer from './SearchContainer';
+import SomethingWentWrong from '../components/SomethingWentWrong';
 
 const mapStateToProps = state => {
   return {
@@ -20,18 +21,32 @@ const mapDispatchToProps = dispatch => {
 }
 
 class Screen extends React.Component {
+  constructor() {
+    super();
+    this.state = { renderError: false };
+  }
+
   componentDidUpdate() {
     this.props.unfreeze();
   }
 
+  componentDidCatch(err, info) {
+    console.log('catch')
+    this.setState({ renderErr: true });
+  }
+
   render() {
-    switch(this.props.screen) {
-      case screens.TOP_SOURCES:
-        return <TopSourcesContainer />
-      case screens.SEARCH:
-        return <SearchContainer />
-      default: 
-        return <SearchContainer />
+    if(!this.state.renderError) {
+      switch(this.props.screen) {
+        case screens.TOP_SOURCES:
+          return <TopSourcesContainer />
+        case screens.SEARCH:
+          return <SearchContainer />
+        default: 
+          return <SearchContainer />
+      }
+    } else {
+      return <SomethingWentWrong />
     }
   }
 }

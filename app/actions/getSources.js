@@ -51,9 +51,9 @@ export const getTopSources = () => {
                   return {
                     name: src.name,
                     description: src.description,
-                    credibleScore: src.credtotal / src.totalusers,
-                    accurateScore: src.acctotal / src.totalusers,
-                    relevantScore: src.reltotal / src.totalusers
+                    credibleScore: (src.credtotal / src.totalusers).toFixed(1),
+                    accurateScore: (src.acctotal / src.totalusers).toFixed(1),
+                    relevantScore: (src.reltotal / src.totalusers).toFixed(1)
                   }
                 })
                 dispatch(gotTopSources(sources));

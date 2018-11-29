@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { TouchableOpacity, View, Text as NativeText } from 'react-native';
-import { buttonStyles, sourceStyles } from '../styles/_components/CustomComponents';
+import { buttonStyles, sourceStyles, ratingStyles } from '../styles/_components/CustomComponents';
 import styles from '../styles/main';
 
 const ButtonComponent = props => {
@@ -36,6 +36,11 @@ export const Source = props => {
   return (
     <View style={sourceStyles.container}>
       <Heading>{props.name}</Heading>
+      <View>
+        <Text inheritStyle={ratingStyles.rating}>Credible: {props.credibleScore}</Text>
+        <Text inheritStyle={ratingStyles.rating}>Accurate: {props.accurateScore}</Text>
+        <Text inheritStyle={ratingStyles.rating}>Relevant: {props.relevantScore}</Text>
+      </View>
     </View>
   )
 }

@@ -39,3 +39,11 @@ export const sourceStyles = StyleSheet.create({
     flex: 0
   }
 })
+
+export const ratingStyles = StyleSheet.create({
+  rating: {
+    padding: units.smallpad,
+    margin: units.smallpad,
+    backgroundColor: colours.highlight
+  }
+})
