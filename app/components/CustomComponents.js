@@ -5,7 +5,6 @@ import { buttonStyles, sourceStyles, ratingStyles } from '../styles/_components/
 import { units } from '../styles/global';
 import styles from '../styles/main';
 import { trim } from '../utils';
-import { normalizeUnits } from 'moment';
 
 const ButtonComponent = props => {
   return (

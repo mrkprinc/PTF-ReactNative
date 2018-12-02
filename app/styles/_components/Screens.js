@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   section: {
     width: '100%',
     alignItems: 'center',
-    backgroundColor: colours.darkGreen,
+    overflow: 'hidden',
     borderTopWidth: units.borderWidth,
     borderBottomWidth: units.borderWidth,
     borderStyle: 'solid',

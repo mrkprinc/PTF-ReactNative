@@ -2,7 +2,7 @@ import React from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { View } from 'react-native';
+import { View, Image } from 'react-native';
 import NavBarContainer from './app/containers/NavBarContainer';
 import ScreenContainer from './app/containers/ScreenContainer';
 import styles from './app/styles/main';
@@ -15,8 +15,12 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.appContainer}>
-          <ScreenContainer />
-          <NavBarContainer />
+          <Image 
+            source={require('./assets/newspaper-background.jpg')}
+            style={{width: '100%', height: '100%', overflow: 'hidden'}}
+          />
+            <ScreenContainer />
+            <NavBarContainer />
         </View>
       </Provider>
     );

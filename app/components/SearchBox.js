@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, TextInput, Picker } from 'react-native';
-import { Heading, Button, Text } from './CustomComponents';
+import { View, TextInput, Picker, Image } from 'react-native';
+import { Heading, Button } from './CustomComponents';
 import screenStyles from '../styles/_components/Screens';
 import styles from '../styles/main';
+import BackgroundGradient from './BackgroundGradient';
 
 class SearchBox extends React.Component {
   constructor() {
@@ -45,13 +46,17 @@ class SearchBox extends React.Component {
 
       return (
         <View style={screenStyles.section}>
+          <BackgroundGradient />
+          
           <Heading>Search Articles</Heading>
+
           <TextInput 
             style={styles.input} 
             placeholder='Keywords' 
             value={this.state.searchInput}
             onChangeText={text => this.setState({searchInput: text})}
           />
+
           <Picker 
             style={styles.input} 
             mode='dropdown' 
@@ -60,6 +65,7 @@ class SearchBox extends React.Component {
           >
             {sources}
           </Picker>
+
           <View style={{flexDirection: 'row', width: '90%'}}>
             <Button 
               text='Search' 
