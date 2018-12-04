@@ -3,6 +3,7 @@ import { View, TextInput, Picker, Image } from 'react-native';
 import { Heading, Button } from './CustomComponents';
 import screenStyles from '../styles/_components/Screens';
 import styles from '../styles/main';
+import { colours } from '../styles/global';
 import BackgroundGradient from './BackgroundGradient';
 
 class SearchBox extends React.Component {
@@ -72,8 +73,7 @@ class SearchBox extends React.Component {
               onPress={e => {
                 this.clearSearch();
                 this.props.searchArticles(this.state);
-              }
-            } 
+              }} 
             />
             <Button text='Clear' onPress={e => this.clearSearch()} />
           </View>
@@ -83,12 +83,13 @@ class SearchBox extends React.Component {
   
     else return (
       <View style={screenStyles.section}>
+        <BackgroundGradient />
+
         <Button 
           text='Start a New Search' 
           inheritStyle={{backgroundColor: 'none', flex: 0}}
           onPress={e => this.props.searchReset()}
-        >
-        </Button>
+        />
       </View>
     )
   }

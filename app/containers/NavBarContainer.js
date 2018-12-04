@@ -1,19 +1,18 @@
 import { connect } from 'react-redux';
 import NavBar from '../components/Navbar';
-import { screens, navigate } from '../actions/navigate';
+import { navigate } from '../actions/navigate';
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    currentScreen: state.screen
+  };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    goToSearch: () => {
-      dispatch(navigate(screens.SEARCH));
+    goTo: (destination) => {
+      dispatch(navigate(destination));
     },
-    goToTopSources: () => {
-      dispatch(navigate(screens.TOP_SOURCES));
-    }
   }
 }
 

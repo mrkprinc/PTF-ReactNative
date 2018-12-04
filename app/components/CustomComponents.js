@@ -9,7 +9,10 @@ import { trim } from '../utils';
 const ButtonComponent = props => {
   return (
     <TouchableOpacity 
-      style={[buttonStyles.container, props.inheritStyle, props.disabled && buttonStyles.disabled]}
+      style={[
+        buttonStyles.container, props.inheritStyle, 
+        props.disabled && buttonStyles.disabled
+      ]}
       activeOpacity={0.6}
       onPress={props.onPress}
       disabled={props.disabled}>
