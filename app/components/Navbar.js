@@ -20,6 +20,7 @@ class NavBar extends React.Component {
   navigate(destination) {
     if(this.props.currentScreen !== destination) {
       this.props.goTo(destination);
+      this.setState({ expanded: false });
     }
   }
 
