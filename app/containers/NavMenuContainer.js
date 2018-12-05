@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NavBar from '../components/Navbar';
+import NavMenu from '../components/NavMenu';
 import { navigate } from '../actions/navigate';
 
 const mapStateToProps = state => {
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavMenu);

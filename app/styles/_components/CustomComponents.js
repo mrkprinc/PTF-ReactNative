@@ -33,7 +33,9 @@ export const sourceStyles = StyleSheet.create({
     backgroundColor: colours.green,
   },
   headline: {
-    flex: 1
+    flex: 1,
+    paddingLeft: units.smallpad * 2,
+    paddingRight: units.smallpad
   },
   button: {
     flex: 0

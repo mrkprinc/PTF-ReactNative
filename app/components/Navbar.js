@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Button } from './CustomComponents';
-import { screens } from '../actions/navigate';
+import NavMenuContainer from '../containers/NavMenuContainer';
 import styles from '../styles/_components/NavBar';
 
 class NavBar extends React.Component {
@@ -17,11 +17,6 @@ class NavBar extends React.Component {
     this.setState({ expanded: toggle });
   }
 
-  navigate(destination) {
-    this.props.goTo(destination);
-    this.setState({ expanded: false });
-  }
-
   render() {
     return (
       <View style={[styles.container, !this.state.expanded && { opacity: 0.5 }]}>
@@ -32,17 +27,7 @@ class NavBar extends React.Component {
         />
 
         {this.state.expanded && (
-          <View style={{flex: 1, flexDirection: 'row'}}>
-            <Button 
-              text='Articles' inheritStyle={styles.button} 
-              onPress={() => this.navigate(screens.SEARCH)}
-              disabled={this.props.currentScreen === screens.SEARCH} />
-
-            <Button 
-              text={'Top Sources'} inheritStyle={styles.button} 
-              onPress={() => this.navigate(screens.TOP_SOURCES)} 
-              disabled={this.props.currentScreen === screens.TOP_SOURCES} />
-          </View>
+          <NavMenuContainer />
         )}
       </View>
     )

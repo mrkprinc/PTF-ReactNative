@@ -75,7 +75,7 @@ class SearchBox extends React.Component {
                 this.props.searchArticles(this.state);
               }} 
             />
-            <Button text='Clear' onPress={e => this.clearSearch()} />
+            <Button text='Clear' onPress={e => this.clearSearch()} secondary={true} />
           </View>
         </View>
       )

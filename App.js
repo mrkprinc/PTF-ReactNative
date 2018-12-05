@@ -3,7 +3,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { View, Image } from 'react-native';
-import NavBarContainer from './app/containers/NavBarContainer';
+import NavBar from './app/components/NavBar';
 import ScreenContainer from './app/containers/ScreenContainer';
 import styles from './app/styles/main';
 import rootReducer from './app/reducers/';
@@ -20,7 +20,7 @@ export default class App extends React.Component {
             style={{width: '100%', height: '100%', overflow: 'hidden'}}
           />
             <ScreenContainer />
-            <NavBarContainer />
+            <NavBar />
         </View>
       </Provider>
     );
