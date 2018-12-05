@@ -11,11 +11,11 @@ const ButtonComponent = props => {
     <TouchableOpacity 
       style={[
         buttonStyles.container, props.inheritStyle, 
-        props.disabled && buttonStyles.disabled
+        (props.disabled || props.frozen) && buttonStyles.disabled
       ]}
       activeOpacity={0.6}
       onPress={props.onPress}
-      disabled={props.disabled}>
+      disabled={props.disabled || props.frozen}>
       <View style={[buttonStyles.button, props.inheritStyle]}>
         <Text inheritStyle={buttonStyles.text}>{props.text}</Text>
       </View>
@@ -23,7 +23,7 @@ const ButtonComponent = props => {
   )
 }
 
-export const Button = connect(state => { return { disabled: state.freeze } })(ButtonComponent);
+export const Button = connect(state => { return { frozen: state.freeze } })(ButtonComponent);
 
 export const Text = props => {
   return (
@@ -64,7 +64,8 @@ export const Article = props => {
         </Text>
       </Text>
       <Button 
-        text={'Rate'} 
+        text={props.alreadyRated ? 'Rated' : 'Rate'} 
+        disabled={props.alreadyRated}
         inheritStyle={sourceStyles.button} 
         onPress={() => props.showModal(props.source, props.url)}
       />

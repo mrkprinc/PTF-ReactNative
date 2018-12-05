@@ -31,3 +31,12 @@ export const modal = (state = {
       return state;
   }
 }
+
+export const alreadyRated = (state = [], action) => {
+  switch(action.type) {
+    case RATING_RESPONSE:
+      return [...state, action.url];
+    default:
+      return state;
+  }
+}

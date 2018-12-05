@@ -27,6 +27,7 @@ const Search = props => {
               sourceName={props.sources.get(item.source)} 
               source={item.source}
               url = {item.url}
+              alreadyRated = {props.alreadyRated.includes(item.url)}
               showModal = {props.showModal}
             />}
         />

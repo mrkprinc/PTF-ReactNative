@@ -5,6 +5,7 @@ import { showModal } from '../actions/rateArticle';
 const mapStateToProps = state => {
   return {
     results: state.search.results.map((result, i) => Object.assign(result, {key: i.toString()})).slice(0, 12),
+    alreadyRated: state.alreadyRated,
     sources: state.sources.sources,
     status: state.search.status
   }

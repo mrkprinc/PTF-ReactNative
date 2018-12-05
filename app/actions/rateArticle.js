@@ -35,7 +35,7 @@ export const submitRatings = ratingsData => {
       }).then(response => {
         if(!response.ok) { throw new ApiError(); }
         else {
-          dispatch(ratingResponse());
+          dispatch(ratingResponse(ratingsData.url));
         }
       }).catch(err => { throw new ApiError(); })
     } catch(err) { console.log(err.msg); };
@@ -48,9 +48,10 @@ const ratingCall = () => {
   }
 }
 
-const ratingResponse = () => {
+const ratingResponse = url => {
   return {
-    type: RATING_RESPONSE
+    type: RATING_RESPONSE,
+    url
   }
 }
 

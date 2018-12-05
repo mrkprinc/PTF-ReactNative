@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { search } from './articleSearch';
-import { modal } from './articleRating';
+import { modal, alreadyRated } from './articleRating';
 import { sources, topSources } from './sources';
 import { screens, NAVIGATE } from '../actions/navigate';
 import { UNFREEZE } from '../actions/freeze';
@@ -31,4 +31,4 @@ const freeze = (state = false, action) => {
   }
 }
 
-export default combineReducers({ search, modal, screen, sources, topSources, freeze });
+export default combineReducers({ search, modal, alreadyRated, screen, sources, topSources, freeze });

@@ -18,10 +18,8 @@ class NavBar extends React.Component {
   }
 
   navigate(destination) {
-    if(this.props.currentScreen !== destination) {
-      this.props.goTo(destination);
-      this.setState({ expanded: false });
-    }
+    this.props.goTo(destination);
+    this.setState({ expanded: false });
   }
 
   render() {
@@ -38,11 +36,12 @@ class NavBar extends React.Component {
             <Button 
               text='Articles' inheritStyle={styles.button} 
               onPress={() => this.navigate(screens.SEARCH)}
-              disabled={true} />
+              disabled={this.props.currentScreen === screens.SEARCH} />
 
             <Button 
               text={'Top Sources'} inheritStyle={styles.button} 
-              onPress={() => this.navigate(screens.TOP_SOURCES)} />
+              onPress={() => this.navigate(screens.TOP_SOURCES)} 
+              disabled={this.props.currentScreen === screens.TOP_SOURCES} />
           </View>
         )}
       </View>
